@@ -3,76 +3,20 @@
 #include <cstdio>
 #include <cstring>
 #include <windows.h>
-
+#include <iomanip>
+const int N=8;
+int check_number[N];    /// массив для номеров маршрута (для исключений)
+int ch_nmb=0;           /// счётчик для этого массива
 using namespace std;
-
-class route
-{
-private:
-    char *start;
-    char *finish;
-    int number;
-public:
-    route()     
-    {
-        start=new char[20];
-        finish=new char[20];
-    }
-    route(const route &arg)     
-    {
-        start=new char[20];
-        finish=new char[20];
-        strcpy(start, arg.start);
-        strcpy(finish, arg.finish);
-		    number=arg.number;
-    }
-    friend istream& operator >> (istream&, route&);
-    friend ostream& operator << (ostream&, route&);
-    bool vivod(char *punkt)
-    {
-        if(!strcmp(start, punkt) || !strcmp(finish, punkt))
-            return 1;
-        else
-            return 0;
-    }
-    bool Bubble_sort(route element)
-    {
-        if(number > element.number)
-            return 1;
-        else
-            return 0;
-    }
-    ~route()        /// деструктор
-    {
-        delete [] start;
-        delete [] finish;
-    }
-};
-istream& operator >> (istream& instream, route& rt)
-{
-    cout<<"Введите начальный пункт: ";
-    instream>>rt.start;
-    cout<<"Введите конечный пункт: ";
-    instream>>rt.finish;
-    cout<<"Введите номер маршрута: ";
-    instream>>rt.number;
-    return instream;
-}
-
-ostream& operator << (ostream& outstream, route& rt)
-{
-    outstream<<rt.start<<' ';
-    outstream<<rt.finish<<' ';
-    outstream<<rt.number<<"\n\n";
-    return outstream;
-}
-
+#include "route.cpp"
 
 int main()
 {
     setlocale(LC_ALL, "rus");
-    const int N=8;
     route inform[N];
+    /*route b("ne4opa", "CTaBponoJIb", 15);
+    cout<<b;                    //проверка конструктора с параметрами
+    system("pause");*/
     for(int i=0; i<N; i++)
         cin>>inform[i];
     route a;
