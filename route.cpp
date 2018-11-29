@@ -1,12 +1,14 @@
 #include "route.h"
 
-route::route()     /// конструктор без параметров
+route::route()
 {
+    cout<<"¬ызван конструктор без параметров\n";
     start=new char[20];
     finish=new char[20];
 }
-route::route(const route &arg)     ///конструктор копирования
+route::route(const route &arg)
 {
+    cout<<"¬ызван конструктор копировани€\n";
     start=new char[20];
     finish=new char[20];
     strcpy(start, arg.start);
@@ -15,6 +17,7 @@ route::route(const route &arg)     ///конструктор копирован�
 }
 route::route(char *strt, char *fnsh, int nmbr)
 {
+    cout<<"¬ызван конструктор с параметрами\n";
     start=new char[20];
     finish=new char[20];
     strcpy(start, strt);
@@ -36,21 +39,22 @@ bool route::Bubble_sort(route element)
     else
         return 0;
 }
-route::~route()        /// деструктор
+route::~route()
 {
+    cout<<"Object destroyed!\n";
     delete [] start;
     delete [] finish;
 }
 
 istream& operator >> (istream& instream, route& rt)
 {
-    cout<<"\nВведите начальный пункт: ";
+    cout<<"\n¬ведите начальный пункт: ";
     instream>>rt.start;
-    cout<<"Введите конечный пункт: ";
+    cout<<"¬ведите конечный пункт: ";
     instream>>rt.finish;
     do
     {
-        cout<<"Введите номер маршрута: ";
+        cout<<"¬ведите номер маршрута: ";
         try
         {
             instream>>rt.number;
@@ -64,7 +68,7 @@ istream& operator >> (istream& instream, route& rt)
         }
         catch(int i)
         {
-            cout<<"Ошибка №"<<i<< " - такой номер маршрута уже был введён ранее\n";
+            cout<<"ќшибка є"<<i<< " - такой номер маршрута уже был введЄн ранее\n";
         }
 
     }while(1);
