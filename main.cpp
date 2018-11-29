@@ -5,8 +5,8 @@
 #include <windows.h>
 #include <iomanip>
 const int N=8;
-int check_number[N];    /// массив для номеров маршрута (для исключений)
-int ch_nmb=0;           /// счётчик для этого массива
+int check_number[N];    /// массив дл€ номеров маршрута (дл€ исключений)
+int ch_nmb=0;           /// счЄтчик дл€ этого массива
 using namespace std;
 #include "route.cpp"
 
@@ -17,6 +17,7 @@ int main()
     /*route b("ne4opa", "CTaBponoJIb", 15);
     cout<<b;                    //проверка конструктора с параметрами
     system("pause");*/
+    system("cls");
     for(int i=0; i<N; i++)
         cin>>inform[i];
     route a;
@@ -35,7 +36,7 @@ int main()
     while(1)
     {
         system("cls");
-        cout<<"1 - Вывести информацию о маршрутах на экран\n2 - Вывести маршруты содержащие название пункта\n0 - Выход\n\n";
+        cout<<"1 - ¬ывести информацию о маршрутах на экран\n2 - ¬ывести маршруты содержащие название пункта\n0 - ¬ыход\n\n";
         int c;
         cin>>c;
         switch(c)
@@ -48,7 +49,7 @@ int main()
         case 2:
             {
                 char punkt[20];
-                cout<<"Введите название пункта: ";
+                cout<<"¬ведите название пункта: ";
                 cin>>punkt;
                 bool is_there=0;
                 for(int i=0; i<N; i++)
@@ -60,10 +61,10 @@ int main()
                     }
                 }
                 if(!is_there)
-                    cout<<"\nМаршрутов, с таким пунктом, нет\n\n";
+                    cout<<"\nћаршрутов, с таким пунктом, нет\n\n";
                 break;
             }
-        default: cout<<"Введена неверная цифра!\n\n"; break;
+        default: cout<<"¬ведена неверна€ цифра!\n\n"; break;
         case 0:   exit(1);
         }
         system("pause");
